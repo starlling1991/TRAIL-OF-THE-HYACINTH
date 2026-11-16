@@ -204,7 +204,7 @@ button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
   </section>
   <section class="mission-threads" aria-label="任务线索状态">
     <div class="thread-pill"><span>风信子号航迹</span><b id="threadTrail">尚未定位</b></div>
-    <div class="thread-pill"><span>潮鸣者关系</span><b id="threadContact">未接触</b></div>
+    <div class="thread-pill"><span>潮鸣者好感</span><b id="threadContact">未接触</b></div>
     <div class="thread-pill"><span>岚星环境评估</span><b id="threadPlanet">未扫描</b></div>
   </section>
 
@@ -232,11 +232,12 @@ button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
         <div id="archiveCopy" class="archive-copy">21世纪末，尤利西斯计划把六艘载有二十五万名殖民者的方舟送入奥尔特云外的不稳定虫洞。方舟与虫洞相继失联；新曙号从另一处异常抵达这里，地球与返航路线都已远在视界之外。</div>
       </div>
       <details class="route-chart"><summary>分支航线与概率 / ROUTE TREE</summary><div class="route-chart-body">
-        <p><b>冰下初次接触</b><br>质数问候：72% 可译回应 / 28% 监听过载；和平序列：78% 互信 / 22% 语义误读；分享求救：64% 岚星坐标 / 36% 对方戒备；谨慎换图：84% 星图互换 / 16% 暂缓回应。</p>
-        <p><b>风信子号追踪</b><br>校准离子航迹：82% 锁定方舟 / 18% 偏航受损；登舰搜索：68% 完整日志 / 32% 舱段坍塌。</p>
-        <p><b>结局导向</b><br>敌意过高 → 潮鸣者的反击；盲目跃迁或资源枯竭 → 迷失太空；互信并共护 → 潮声与新家园；数据不足登陆 → 隔离线内的家；低稳定度登陆 → 疲惫的开拓者；充分调查登陆 → 在岚星落脚；轨道观测 → 等待中的黎明 / 轨道上的最后信标。</p>
-      </div></details>
-    </aside>
+<p><b>前置调查：静默星系出现非人类航迹云</b><br>高精度扫描：42% 发现母舰 / 38% 发现残骸 / 20% 只获航迹；贴近航迹：32% 母舰 / 53% 残骸 / 15% 碎片云；静默观察：18% 母舰 / 22% 残骸 / 60% 信标。</p>
+<p><b>初次接触行动与好感</b><br>发现残骸后归还货物：78% 完好归还 / 22% 货物受损；偷取数据：72% 未暴露 / 28% 被识破；劫持个体：42% 短暂成功 / 58% 救援成功；和平会面：76% 母舰回应 / 24% 暂不回应。归还个体与数据有 82% 获得修复。</p>
+<p><b>直接接触</b><br>数学与和平讯息：78% 互信 / 22% 误读；分享求救录音：64% 线索 / 36% 戒备；谨慎换图：84% 交换 / 16% 暂缓。好感由归还、合作、偷窃、劫持与后续补救累积。</p>
+<p><b>风信子号档案与坐标</b><br>登舰：68% 找到完整日志与测绘 / 32% 残骸坍塌；完整日志+测绘交叉校准：58% 确认岚星 / 42% 坐标缺失；远程黑匣子：14% 找到坐标 / 86% 未保留坐标。导航核心只给方向，不直接给坐标。</p>
+<p><b>结局</b><br>普通好感（≥2）：未知空间居住站；高好感（≥5）：宜居破碎星环；极高好感（≥8）：环境改造科技与新世界工程。坐标确认后可登陆岚星或共护；低好感且敌意过高触发潮鸣者反击；能源与船体不足、盲跃迁、轨道等待或登陆状态分别导向对应结局。</p>
+</div></details>    </aside>
 
     <section class="card play-card" aria-live="polite">
       <div class="play-top"><div id="phaseLabel" class="phase-label">任务待命</div><div class="ship-id">新曙号 / COLONY ARK</div></div>
@@ -331,7 +332,7 @@ var sites=[
   textFn:function(s){return s.tags.ping?"质数序列得到回应。翻译器逐渐拼出对方的自称：「潮鸣者」。他们生活在沉钟-9冰层下的海洋，以声波和磁场传递记忆。对他们来说，风信子号不是一艘船，而是一颗突然停止歌唱的铁星。":"通讯阵列捕捉到新的节拍。潮鸣者早已保存风信子号最后的信号，却没有理解其中的人类语言。如今，他们也在判断新曙号是旅客、求救者，还是会夺走海洋的入侵者。"},
   choices:[
    {title:"发送数学序列与和平意图",hint:"研究 +1 · 建立互信",cost:{research:1},tags:["contact","contactOpen"],effects:{contact:1},outcomes:[{chance:78,label:"互信回应",text:"潮鸣者以交错声波复述了和平意图，并分享一条安全航路。",effects:{contact:1},tags:["contactOpen"]},{chance:22,label:"语义误读",text:"对方把重复信号理解成警戒节拍，交流暂时降为谨慎状态。",effects:{hostility:1}}],result:"数学序列和和平意图已发送。翻译器把回应拆分为航路、边界与未知的关系词。"},
-   {title:"分享风信子号的求救录音",hint:"能源 −1 · 交换关键记忆",cost:{energy:-1},tags:["contact","sharedSOS"],effects:{contact:2},outcomes:[{chance:64,label:"回声指向岚星",text:"潮鸣者认出了百年前的铁星，把岚星坐标与一段生态警示一起交给你。",effects:{contact:1},tags:["sharedSOS"]},{chance:36,label:"录音引发戒备",text:"求救录音中的警报被理解为冲突信号；他们只给出模糊坐标，要求新曙号保持距离。",effects:{hostility:1}}],result:"风信子号的求救录音已发送。冰下脉冲一度停止；随后，潮鸣者传回一段保存百年的声音。"},
+   {title:"分享风信子号的求救录音",hint:"能源 −1 · 交换关键记忆",cost:{energy:-1},tags:["contact","sharedSOS"],effects:{contact:2},outcomes:[{chance:64,label:"回声确认方舟航迹",text:"潮鸣者认出了百年前的铁星，分享风信子号曾向沉钟-9求援的记忆；这提供了追踪方向，但没有岚星坐标。",effects:{contact:1},tags:["sharedSOS"]},{chance:36,label:"录音引发戒备",text:"求救录音中的警报被理解为冲突信号；他们只给出模糊坐标，要求新曙号保持距离。",effects:{hostility:1}}],result:"风信子号的求救录音已发送。冰下脉冲一度停止；随后，潮鸣者传回一段保存百年的声音。"},
    {title:"只交换星图，不公开殖民舱",hint:"谨慎互惠 · 保留隐私",cost:{},tags:["contact","contactCautious"],effects:{contact:1},outcomes:[{chance:84,label:"有限星图互换",text:"双方各自隐藏敏感信息，仍完成一次克制的坐标交换。",effects:{contact:1}},{chance:16,label:"对方拒绝映射",text:"潮鸣者暂不分享位置数据，只留下一个代表“稍后”的回声符号。",effects:{morale:-1}}],result:"新曙号只公开匿名化星图，没有公开二十五万名休眠者。双方用各自的星图试探交换尺度。"},
    {title:"宣布沉钟-9为人类领地",hint:"争夺资源 · 严重激怒潮鸣者",cost:{},tag:"claim",effects:{hostility:2},result:"开采许可被广播到整颗卫星。冰层下的脉冲骤然停止；片刻后，一道强磁扰动扫过新曙号外壳。潮鸣者把这次宣告理解成了入侵。"}
   ],
@@ -362,7 +363,7 @@ var sites=[
   ],
   choices:[
    {title:"完整恢复四段日志",hint:"研究 +2 · 还原风信子号命运",cost:{research:2},tag:"logsRead",result:"四段记录被永久保存。风信子号并非在虫洞中消失，而是在陌生星域里慢慢失去能源、食物和希望。"},
-   {title:"提取天体测量缓存",hint:"锁定岚星 · 评估环境",cost:{research:1},tag:"navdata",effects:{planetScan:1,route:1},result:"缓存指出一颗未完成扫描的蓝色行星。风信子号曾把它列为候选家园，却没能抵达；新曙号现在可以比它多走一步。"},
+   {title:"提取天体测量缓存",hint:"补充研究 · 评估候选环境",cost:{research:1},tag:"navdata",effects:{planetScan:1,route:1},result:"缓存只保存了蓝色行星的光谱与大气候选值，坐标段仍不完整；必须与完整船长日志交叉校准，才有机会定位。"},
    {title:"把人类日志交给潮鸣者",hint:"分享记忆 · 争取互信",cost:{},tags:["logsShared"],effectFn:function(s){return s.contact>0?{contact:1}:{hostility:1}},resultFn:function(s){return s.contact>0?"潮鸣者把四段人类声音与他们保存的风信子号回声并置。两种文明都失去过同伴；这一次，彼此终于听懂了。":"讯息发出后没有回答。潮鸣者把这段声音记录为未受邀的广播；你们仍不知道他们会如何理解它。"}}
   ],
   logsView:true,
@@ -374,13 +375,74 @@ var sites=[
    return contact+" 新曙号终于抵达候选世界。"+eco+" 殖民舱中的二十五万人仍在沉睡。你要决定：是尽快让他们醒来，还是先确认这颗星球是否真的准备好迎接人类？";
   },
   choices:[
-   {title:"唤醒先遣队，建立地表营地",hint:"登陆岚星 · 结局取决于准备与关系",endingType:"land"},
-   {title:"向潮鸣者提出共同守护岚星",hint:"若互信已足够，可开启共居结局",endingType:"treaty"},
+   {title:"唤醒先遣队，建立地表营地",hint:"坐标确认后开放 · 结局取决于准备与关系",endingType:"land"},
+   {title:"向潮鸣者提出共同守护岚星",hint:"需坐标确认并建立互信",endingType:"treaty"},
    {title:"留在轨道，先派无人着陆器",hint:"保守观测 · 受剩余能源影响",endingType:"orbit"},
    {title:"追随更远处的未知信号",hint:"高风险跃迁 · 可能重演失踪",endingType:"jump"}
   ],
   scene:"planet"}
- ];var state={hull:4,energy:7,morale:4,research:0,contact:0,hostility:0,route:0,planetScan:0,stop:0,tags:{},visited:[],phase:"cover",chosen:null};
+ ];var state={hull:4,energy:7,morale:4,research:0,contact:0,affinity:0,hostility:0,route:0,planetScan:0,stop:0,tags:{},visited:[],phase:"cover",chosen:null};
+sites[1].name="异常航迹";sites[1].short="异星航迹";sites[1].kind="UNIDENTIFIED WAKE";sites[1].title="不像人类留下的尾迹";
+sites[1].text="静默星系的外缘没有无线电回应，却留下一片缓慢扩散的航迹云。推进剂光谱不属于尤利西斯方舟，脉冲间隔也不符合人类导航信标。它像一艘船刚刚离开，又像有人故意把航迹留给后来者。袁青提醒：在确认对方意图前，任何靠近都可能被视作威胁。";
+sites[1].atlasOverride={sector:"UNIDENTIFIED SYSTEM",name:"灰烬-3 · 荒芜岩质世界",className:"BARREN WORLD · NON-HUMAN WAKE",image:"01-barren-world.png"};
+sites[1].choices=[
+ {title:"进行高精度频谱扫描",hint:"研究 +1 · 解析未知航迹",cost:{energy:-1,research:1},outcomes:[{chance:42,label:"直接发现潮鸣者母舰",text:"航迹云后方显现一艘庞大的深海运输母舰；它没有锁定武器，但正等待回应。",tags:["tideMother"]},{chance:38,label:"发现失事小型飞船",text:"一艘潮鸣者侦察艇失去动力，货舱仍密封。残骸的信标正间歇呼叫母舰。",tags:["tideWreck"]},{chance:20,label:"只取得残缺航迹",text:"粒子云掩盖了目标，只能确认它通往沉钟-9附近。",tags:["traceOnly"]}]},
+ {title:"驾驶探测器贴近航迹云",hint:"较高风险 · 更容易找到残骸",cost:{hull:-1},outcomes:[{chance:32,label:"遭遇潮鸣者母舰",text:"母舰从行星背面现身，探测器被一道定向声波拦停。",tags:["tideMother"]},{chance:53,label:"撞见失事侦察艇",text:"探测器找到一艘破损飞船，舱内货物仍有微弱保温信号。",tags:["tideWreck"]},{chance:15,label:"触发碎片云",text:"航迹云其实混有高速碎片，探测器失联并带回一组危险警报。",effects:{hull:-1},tags:["traceOnly","debrisHit"]}]},
+ {title:"保持静默，等待对方行动",hint:"稳定度 +1 · 低风险观察",cost:{morale:1},outcomes:[{chance:18,label:"母舰主动现身",text:"对方似乎察觉了你们的克制，母舰缓慢驶入远距视野。",tags:["tideMother"]},{chance:22,label:"发现漂流残骸",text:"信号源不是母舰，而是一艘在航迹云中漂流的侦察艇。",tags:["tideWreck"]},{chance:60,label:"只截获重复信标",text:"无人接近。信标反复发送一个坐标：沉钟-9。",tags:["traceOnly"]}]}
+];
+sites[2].name="潮鸣者前哨";sites[2].short="接触前哨";sites[2].kind="PRE-CONTACT OPERATION";sites[2].title="失事货舱与母舰信标";
+sites[2].imageDynamic=true;
+sites[2].textFn=function(s){
+ var who=s.tags.tideMother?"潮鸣者母舰已进入通讯范围。":"母舰尚未现身，但沉钟-9方向的信标正在等待回应。";
+ var wreck=s.tags.tideWreck?"失事侦察艇的货舱里保存着生物滤膜、海底种子和一枚船员身份牌。":"扫描没有发现完整残骸；你们仍可尝试窃取航迹数据或主动呼叫。";
+ var cargo=s.tags.cargoReturned?"归还货物的信标已发出，母舰确认收妥。":"";
+ return who+wreck+cargo+" 接触规则由船长决定：把对方当作需要帮助的旅者，还是把它当作可研究的未知样本。";
+};
+sites[2].choicesFn=function(s){
+ var list=[];
+ if(s.tags.tideWreck)list.push({title:"封存货舱并归还潮鸣者",hint:"建立信任 · 货物有概率完好",effects:{affinity:1},tags:["cargoReturnAttempt"],outcomes:[{chance:78,label:"货物完整归还",text:"滤膜与种子都完好无损。母舰回传一段感谢声谱，好感明显上升。",effects:{affinity:2,contact:1},tags:["cargoReturned"]},{chance:22,label:"货物受损但归还",text:"保温舱在转运中破裂，种子损失一部分；潮鸣者仍接受归还行为。",effects:{affinity:1},tags:["cargoReturned"]}]});
+ list.push({title:"偷取侦察艇的导航与生物数据",hint:"研究提升 · 暴露会损害关系",cost:{research:1},outcomes:[{chance:72,label:"数据窃取未被发现",text:"你复制了潮鸣者的航路与生物适应数据，暂时没有触发警报。",effects:{research:2,affinity:-2},tags:["dataStolen"]},{chance:28,label:"窃取行为被识破",text:"母舰截获数据链路并要求归还副本；拒绝会被视为敌对行为。",effects:{research:1,affinity:-3,hostility:1},tags:["dataStolen","stealExposed"]}]});
+ list.push({title:"劫持一名潮鸣者个体进行研究",hint:"高风险 · 可能触发救援行动",outcomes:[{chance:42,label:"短暂控制成功",text:"小队带回一名潮鸣者。检查显示他们依靠声波记忆与盐度变化交流；母舰立刻发出最后通牒。",effects:{research:2,affinity:-4,hostility:1},tags:["abducted"]},{chance:58,label:"救援队先一步抵达",text:"潮鸣者救援艇夺回同伴。新曙号没有伤亡，但通讯被标记为高风险接触。",effects:{affinity:-3,hostility:2},tags:["abductionFailed"]}]});
+ list.push({title:"公开身份并请求和平会面",hint:"消耗能源 · 以透明换取信任",cost:{energy:-1},outcomes:[{chance:76,label:"母舰回应邀请",text:"潮鸣者同意在远距轨道会面，并把新曙号标记为可沟通对象。",effects:{affinity:2,contact:1},tags:["parley"]},{chance:24,label:"对方暂不回应",text:"母舰保持静默，只发送一条重复的沉钟-9坐标；信任尚未建立。",effects:{affinity:1},tags:["parley"]}]});
+ if(s.tags.abducted||s.tags.dataStolen)list.push({title:"归还个体与数据副本",hint:"补救关系 · 不会抹去此前行为",outcomes:[{chance:82,label:"接受归还",text:"潮鸣者收回同伴与数据副本，敌意下降，但仍要求后续观察。",effects:{affinity:2,hostility:-1},tags:["restitution"]},{chance:18,label:"拒绝接收或无法验证",text:"对方认为归还不完整，关系只得到有限修复。",effects:{affinity:1}}]});
+ return list;
+};
+sites[2].planet=2;
+sites[2].atlasOverride={sector:"FIRST CONTACT / DERELICT",name:"潮鸣者侦察艇 · 失事残骸",className:"TIDECALLER SCOUT · CARGO SIGNAL",image:"04-tidecaller-wreck.png"};
+sites[3].choices[0].effects.affinity=1;sites[3].choices[0].outcomes[0].effects.affinity=1;sites[3].choices[1].effects.affinity=1;sites[3].choices[2].effects={affinity:1};
+sites[4].choices[0].effects.affinity=1;
+sites[4].choices[0].outcomes[0].effects.affinity=2;sites[4].choices[0].outcomes[1].effects.affinity=-1;
+sites[4].choices[1].effects.affinity=1;sites[4].choices[1].outcomes[0].effects.affinity=2;sites[4].choices[1].outcomes[1].effects.affinity=-2;
+sites[4].choices[2].effects.affinity=1;sites[4].choices[2].outcomes[0].effects.affinity=1;sites[4].choices[2].outcomes[1].effects.affinity=-1;
+sites[4].choices[3].effects.affinity=-3;
+sites[4].choices[3].result="新曙号广播资源占有声明。潮鸣者将其视为入侵；如果此前劫持或窃取过数据，他们不再把这次行动当成误会。";
+sites[6].choices[0].outcomes[0].tags=["fullLogs","surveyCache"];
+sites[6].choices[0].outcomes[0].text="小队在舰桥找到完整日志和测绘缓存。两份资料仍需交叉校准，才能确认候选行星坐标。";
+sites[6].choices[0].outcomes[1].text="舱段坍塌迫使小队撤退，日志与测绘资料都不完整。";
+sites[6].choices[1].outcomes=[{chance:14,label:"黑匣子含有坐标脉冲",text:"黑匣子末帧保存着一组低置信度的宜居行星坐标。",tags:["lanxingCoords","coordsFromBlackbox"]},{chance:86,label:"黑匣子未保留星图",text:"远程解码只恢复出反应堆故障与求救记录，坐标区段已损坏。"}];
+sites[6].choices[1].result="新曙号从安全距离向风信子号黑匣子发送解码脉冲。";
+sites[6].choices[2].result="导航核心仍有方向性残留，但不足以直接给出宜居星球坐标；还需日志、测绘或潮鸣者的线索。";
+sites[7].textFn=function(s){return s.tags.lanxingCoords?"测绘缓存与日志已交叉校准，岚星坐标进入导航系统。":"风信子号的日志复原出反应堆故障与补给崩溃。宜居星球坐标并非必然保存在档案中，测绘残页仍有待交叉验证。"};
+sites[7].choicesFn=function(s){
+ var list=sites[7].choices.slice();
+ if(s.tags.fullLogs&&s.tags.surveyCache&&!s.tags.lanxingCoords)list.unshift({title:"完整日志与测绘缓存交叉校准",hint:"仅完整两份档案时开放 · 坐标概率事件",outcomes:[{chance:58,label:"确认岚星坐标",text:"日志中的观测时间与缓存中的脉冲星位置吻合，岚星坐标被确认。",tags:["lanxingCoords","coordsFromSurvey"]},{chance:42,label:"坐标段仍然缺失",text:"缓存保存了大气光谱，却没有完整的绝对坐标；目标仍在未知空间。"}]});
+ return list;
+};
+sites[8].textFn=function(s){
+ if(s.tags.lanxingCoords)return "完整日志与测绘资料锁定了岚星。风信子号曾确认这里有海洋、大气与稳定磁场；潮鸣者的季节性声谱提示，地表生态仍需谨慎观察。二十五万名殖民者还在沉睡，船长必须决定是登陆、等待，还是接受潮鸣者提供的其他家园线索。";
+ return "岚星坐标仍未确认。潮鸣者留下几处替代航标：一座未知空间居住站、宜居破碎星环，以及一颗可由环境改造技术复苏的荒芜行星。新曙号必须依据已经建立的信任，选择是否接受这些线索。";
+};
+sites[8].choicesFn=function(s){
+ var list=[];
+ if(s.tags.lanxingCoords)list.push(sites[8].choices[0]);
+ if(s.affinity>=2)list.push({title:"前往潮鸣者标记的未知空间居住站",hint:"好感达到普通 · 中等信任结局",endingType:"habitat"});
+ if(s.affinity>=5)list.push({title:"迁往潮鸣者守护的宜居破碎星环",hint:"好感高 · 环带生态家园",endingType:"ring"});
+ if(s.affinity>=8)list.push({title:"接受环境改造科技并复苏荒芜星球",hint:"好感极高 · 开启行星改造结局",endingType:"terraform"});
+ if(s.tags.lanxingCoords&&s.affinity>=2)list.push(sites[8].choices[1]);
+ list.push(sites[8].choices[2],sites[8].choices[3]);
+ return list;
+};
+
 var nodesEl=document.getElementById("nodes");
 var mapCoords=[{x:12,y:85},{x:24,y:65},{x:33,y:80},{x:42,y:55},{x:52,y:65},{x:64,y:70},{x:75,y:48},{x:84,y:30},{x:93,y:15}];
 var titleEl=document.getElementById("eventTitle"),storyEl=document.getElementById("story"),metaEl=document.getElementById("eventMeta");
@@ -397,7 +459,7 @@ function updateStats(){
  var pct=state.visited.length===0?0:Math.round((state.visited.length/sites.length)*100);
  document.getElementById("doneLine").setAttribute("stroke-dasharray",pct+" 100");
  document.getElementById("threadTrail").textContent=state.route>=3?"坐标稳定":(state.route>=1?"线索有进展":"尚未定位");
- document.getElementById("threadContact").textContent=state.hostility>=2?"关系敌对":(state.contact>=2?"建立互信":(state.contact>0?"谨慎交流":"未接触"));
+ document.getElementById("threadContact").textContent=state.hostility>=2?"关系敌对":("好感 "+state.affinity+" · "+(state.affinity>=8?"极高":state.affinity>=5?"高":state.affinity>=2?"普通":"陌生"));
  document.getElementById("threadPlanet").textContent=state.planetScan>=2?"数据充足":(state.planetScan===1?"初步评估":"未扫描");
 }
 var planetAtlas=[
@@ -410,7 +472,9 @@ var planetAtlas=[
 function drawScene(type){
  var site=sites[state.stop],index=site&&typeof site.planet==="number"?site.planet:1;
  var planet=planetAtlas[index]||planetAtlas[0],img=document.getElementById("planetImage");
- if(state.stop===2)planet={sector:"PASSENGER ARCHIVE",name:"地球 · 海陆蓝色家园影像",className:"ARCHIVE IMAGE · HUMAN HOMEWORLD",image:"01-lanxing-habitable-world.png"};
+ if(site&&site.atlasOverride)planet=site.atlasOverride;
+ if(state.stop===2&&state.tags.tideMother)planet={sector:"FIRST CONTACT / MOTHERSHIP",name:"潮鸣者母舰 · 沉钟-9轨道",className:"TIDECALLER ARK · SIGNAL IN RANGE",image:"04-tidecaller-wreck.png"};
+ 
  document.getElementById("atlasHeader").textContent="SECTOR "+String(state.stop+1).padStart(2,"0")+" // "+planet.sector;
  document.getElementById("atlasIndex").textContent=String(index+1).padStart(2,"0");
  document.getElementById("atlasName").textContent=planet.name;
@@ -503,7 +567,8 @@ function travel(){
  var text=s.textFn?s.textFn(state):s.text;
  setView(s.title,"记录 "+String(state.stop+1).padStart(2,"0")+" / 09　 ·　 "+s.kind,text,"抵达星系 · 调查中","请选择本次调查方式");
  drawScene(s.scene);clearInteraction();
- s.choices.forEach(function(choice,index){
+ var activeChoices=s.choicesFn?s.choicesFn(state):s.choices;
+ activeChoices.forEach(function(choice,index){
   var b=document.createElement("button");b.className="choice";
   var hint=choice.hint||"记录决定";
   var routeText=choice.outcomes?choice.outcomes.map(function(o){return o.chance+"% "+o.label}).join("  ·  "):"";
@@ -524,12 +589,12 @@ function selectChoice(choice){
   });
  }
  var effects=choice.effectFn?choice.effectFn(state):choice.effects;
- if(effects)Object.keys(effects).forEach(function(k){if(state.hasOwnProperty(k)){var max={hull:5,energy:8,morale:5,contact:3,hostility:3,route:4,planetScan:3}[k]||5;state[k]=clamp(state[k]+effects[k],0,max)}});
+ if(effects)Object.keys(effects).forEach(function(k){if(state.hasOwnProperty(k)){var max={hull:5,energy:8,morale:5,contact:3,affinity:10,hostility:3,route:4,planetScan:3}[k]||5;state[k]=clamp(state[k]+effects[k],0,max)}});
  if(choice.tag)state.tags[choice.tag]=true;
  if(choice.tags)choice.tags.forEach(function(tag){state.tags[tag]=true});
  if(choice.contact)state.contact=choice.contact;
  var branchText="";
- if(choice.outcomes){var roll=Math.random()*100,edge=0;for(var oi=0;oi<choice.outcomes.length;oi++){edge+=choice.outcomes[oi].chance;if(roll<edge){var outcome=choice.outcomes[oi];branchText=outcome.text;if(outcome.effects)Object.keys(outcome.effects).forEach(function(k){if(state.hasOwnProperty(k)){var max={hull:5,energy:8,morale:5,contact:3,hostility:3,route:4,planetScan:3}[k]||5;state[k]=clamp(state[k]+outcome.effects[k],0,max)}});if(outcome.tags)outcome.tags.forEach(function(tag){state.tags[tag]=true});break;}}}
+ if(choice.outcomes){var roll=Math.random()*100,edge=0;for(var oi=0;oi<choice.outcomes.length;oi++){edge+=choice.outcomes[oi].chance;if(roll<edge){var outcome=choice.outcomes[oi];branchText=outcome.text;if(outcome.effects)Object.keys(outcome.effects).forEach(function(k){if(state.hasOwnProperty(k)){var max={hull:5,energy:8,morale:5,contact:3,affinity:10,hostility:3,route:4,planetScan:3}[k]||5;state[k]=clamp(state[k]+outcome.effects[k],0,max)}});if(outcome.tags)outcome.tags.forEach(function(tag){state.tags[tag]=true});break;}}}
  if(state.stop===7)state.tags.log=true;
  var result=(choice.resultFn?choice.resultFn(state):choice.result)+(branchText?"\n\n【概率事件】"+branchText:"");
  Array.from(choicesEl.querySelectorAll("button")).forEach(function(b){b.disabled=true});
@@ -564,6 +629,18 @@ function finish(choice){
   state.energy=0;state.hull=clamp(state.hull-1,0,5);
   title="像风信子三号一样，迷失太空";
   body="新曙号追随未经校准的暗流离开岚星轨道。跃迁坐标在途中崩解，反应堆再也没有重新点亮。最后一段日志与风信子号的记录惊人相似：导航灯熄灭，星图上少了一艘方舟。百年后，潮鸣者或许也会把你们称作‘停止歌唱的铁星’。";
+ }else if(choice.endingType==="habitat"){
+  title="未知空间居住站";
+  body="潮鸣者把一座停用的深空居住站坐标交给新曙号。站内有可重启的水循环与旋转居住环，足以先安置一批居民；更重要的是，那里远离潮鸣者的海洋领地。普通好感赢得了一处暂居地，也留下未来谈判的空间。";
+  document.getElementById("planetImage").src="assets/02-abandoned-habitat.png";document.getElementById("atlasName").textContent="未知空间居住站 · 复苏中的轨道家园";document.getElementById("atlasClass").textContent="DERELICT HABITAT · REACTIVATION POSSIBLE";
+ }else if(choice.endingType==="ring"){
+  title="宜居破碎星环";
+  body="高好感让潮鸣者愿意分享星环的季节航道。破碎星环由多座宜居卫星与古老栖居模块组成，生态脆弱但能承载殖民者。人类不再把它视作待占领的资源，而是成为共同维护者。";
+  document.getElementById("planetImage").src="assets/03-broken-habitable-ring.png";document.getElementById("atlasName").textContent="潮鸣者星图 · 宜居破碎星环";document.getElementById("atlasClass").textContent="BROKEN HABITABLE RING · SHARED SANCTUARY";
+ }else if(choice.endingType==="terraform"){
+  title="新世界工程";
+  body="极高好感打开了潮鸣者的环境改造档案：他们提供磁场稳定器、海洋播种与大气循环技术。新曙号选择一颗荒芜岩质星球，先改造生态，再唤醒殖民者。工程将持续数十年，但二十五万人终于拥有一颗不必夺取他人家园的新世界。";
+  document.getElementById("planetImage").src="assets/01-barren-world.png";document.getElementById("atlasName").textContent="改造目标 · 荒芜岩质行星";document.getElementById("atlasClass").textContent="BARREN WORLD · TERRAFORMING INITIATED";
  }else if(choice.endingType==="treaty"&&state.contact>=2){
   title="潮声与新家园";
   body="潮鸣者接受了共同守护岚星的提议。他们分享季节性的生态图谱，新曙号则把风信子号的日志交给他们保存。第一批人类在隔离轨道站醒来；殖民计划改写为一份不占有、不惊扰的共居协议。";
@@ -591,12 +668,12 @@ function finish(choice){
  }
  var extra=state.research>=6?"调查资料完整保存，风信子号的经历不再只是一段失踪记录。":(state.research>=3?"关键日志和部分航迹已被带回。":"档案仍有缺口，但新曙号留下了自己的最后记录。");
  var crew=state.morale>=4?"殖民舱读数稳定，第一批居民可以按计划苏醒。":"殖民舱状态需要持续监控，唤醒必须分批进行。";
- var endingTitles=["潮鸣者的反击","像风信子三号一样，迷失太空","潮声与新家园","尚未抵达的共居协议","轨道上的最后信标","等待中的黎明","隔离线内的家园","疲惫的开拓者","在岚星落脚"];
- var endingNo=Math.max(1,endingTitles.indexOf(title)+1),found=[];try{found=JSON.parse(localStorage.getItem("hyacinth_endings")||"[]");}catch(e){}if(found.indexOf(endingNo)===-1)found.push(endingNo);try{localStorage.setItem("hyacinth_endings",JSON.stringify(found));}catch(e){}
+ var endingTitles=["潮鸣者的反击","像风信子三号一样，迷失太空","未知空间居住站","宜居破碎星环","新世界工程","潮声与新家园","尚未抵达的共居协议","轨道上的最后信标","等待中的黎明","隔离线内的家园","疲惫的开拓者","在岚星落脚"];
+ var endingNo=Math.max(1,endingTitles.indexOf(title)+1),found=[];try{found=JSON.parse(localStorage.getItem("hyacinth_endings_expanded")||"[]");}catch(e){}if(found.indexOf(endingNo)===-1)found.push(endingNo);try{localStorage.setItem("hyacinth_endings_expanded",JSON.stringify(found));}catch(e){}
  document.getElementById("endingMark").textContent="本局结局 "+endingNo+" / 共 "+endingTitles.length+" 种　·　已发现 "+found.length+" / "+endingTitles.length;
  document.getElementById("endingTitle").textContent=title;
  document.getElementById("endingBody").textContent=body+" "+extra+" "+crew;
- document.getElementById("report").innerHTML="航行摘要：航程 <b>"+sites.length+"</b> 段　·　调查资料 <b>"+state.research+"</b>　·　航路 <b>"+state.route+"/4</b>　·　接触 <b>"+state.contact+"</b>　·　敌意 <b>"+state.hostility+"</b>　·　船体 <b>"+state.hull+"/5</b>　·　殖民舱稳定度 <b>"+state.morale+"/5</b>";
+ document.getElementById("report").innerHTML="航行摘要：航程 <b>"+sites.length+"</b> 段　·　调查资料 <b>"+state.research+"</b>　·　航路 <b>"+state.route+"/4</b>　·　接触 <b>"+state.contact+"</b>　·　潮鸣者好感 <b>"+state.affinity+"</b>　·　敌意 <b>"+state.hostility+"</b>　·　船体 <b>"+state.hull+"/5</b>　·　殖民舱稳定度 <b>"+state.morale+"/5</b>";
  document.getElementById("endingOverlay").classList.remove("hidden");
  document.getElementById("routeNoteTitle").textContent="航程完成";
  document.getElementById("routeNote").textContent="你的决定已经写入星图。";
@@ -616,6 +693,7 @@ function selectArchive(key){
  if(key==="contact"){
   archiveCopy.textContent=state.hostility>=2?"接触状态：敌对。新曙号宣布占有沉钟-9的资源，潮鸣者将其视为入侵；磁场扰动已切断部分方舟系统。":(state.contact===0?"接触状态：尚未确认。冰下脉冲可能来自自然现象，也可能是智慧生命。是否回应，将决定对方如何理解新曙号。":(state.contact>=2?"接触状态：建立互信。潮鸣者通过水声与磁场交换记忆，已分享风信子号的末段信号和岚星航图。":"接触状态：谨慎交流。双方交换了有限信息；新曙号仍未公开殖民者规模与完整任务档案。"));
  }else archiveCopy.textContent=archiveText[key];
+ if(key==="contact")archiveCopy.textContent+=" 当前好感 "+state.affinity+"/10：达到 2 可获得居住站线索，达到 5 可获破碎星环航道，达到 8 才会分享环境改造技术。";
 }
 archiveTabs.forEach(function(tab){tab.addEventListener("click",function(){selectArchive(tab.dataset.archive)})});
 renderMap();drawScene("wormhole");clearInteraction();
